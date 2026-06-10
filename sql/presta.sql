@@ -1227,7 +1227,7 @@ CREATE TABLE IF NOT EXISTS `IWwebbox` (
 --
 
 INSERT INTO `IWwebbox` (`iw_pid`, `iw_url`, `iw_ref`, `iw_scrolls`, `iw_description`, `iw_width`, `iw_height`, `iw_widthunit`, `pn_obj_status`, `pn_cr_date`, `pn_cr_uid`, `pn_lu_date`, `pn_lu_uid`) VALUES
-(1, 'http://agora/prestatgeria/pmf/', 'pmf', 1, '', 100, 1200, '%', 'A', '2009-11-21 17:41:00', 2, '2012-12-21 10:12:07', 2);
+(1, 'https://prestatgeria.xtec.cat/prestatgeria/pmf/', 'pmf', 1, '', 100, 1200, '%', 'A', '2009-11-21 17:41:00', 2, '2012-12-21 10:12:07', 2);
 
 -- --------------------------------------------------------
 
@@ -1536,7 +1536,7 @@ INSERT INTO `module_vars` (`id`, `modname`, `name`, `value`) VALUES
 (193, 'AuthPN', 'authmodules', 's:18:"iw_AuthLDAP,AuthPN";'),
 (421, 'ZConfig', 'idnnames', 'b:1;'),
 (423, '/EventHandlers', 'Users', 'a:4:{i:0;a:3:{s:9:"eventname";s:19:"get.pending_content";s:8:"callable";a:2:{i:0;s:29:"Users_Listener_PendingContent";i:1;s:22:"pendingContentListener";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:15:"user.login.veto";s:8:"callable";a:2:{i:0;s:35:"Users_Listener_ForcedPasswordChange";i:1;s:28:"forcedPasswordChangeListener";}s:6:"weight";i:10;}i:2;a:3:{s:9:"eventname";s:21:"user.logout.succeeded";s:8:"callable";a:2:{i:0;s:34:"Users_Listener_ClearUsersNamespace";i:1;s:27:"clearUsersNamespaceListener";}s:6:"weight";i:10;}i:3;a:3:{s:9:"eventname";s:25:"frontcontroller.exception";s:8:"callable";a:2:{i:0;s:34:"Users_Listener_ClearUsersNamespace";i:1;s:27:"clearUsersNamespaceListener";}s:6:"weight";i:10;}}'),
-(204, 'Books', 'bookSoftwareUrl', 's:25:"http://agora/prestatgeria";'),
+(204, 'Books', 'bookSoftwareUrl', 's:42:"https://prestatgeria.xtec.cat/prestatgeria";'),
 (205, 'Books', 'bookSoftwareUri', 's:13:"/prestatgeria";'),
 (206, 'Books', 'canCreateToOthers', 's:1:"1";'),
 (207, 'Books', 'mailDomServer', 's:9:"@xtec.cat";'),

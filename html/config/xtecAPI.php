@@ -38,6 +38,20 @@ function getSchoolInfo($schoolCode) {
     return $values;
 }
 
+function getBookModuleAttribute($attribute) {
+    global $ZConfig;
+    $connection = connect($ZConfig['DBInfo']['databases']['default']['dbname']);
+    $sql = "SELECT value FROM module_vars WHERE modname = 'Books' AND name = '$attribute'";
+    $rs = mysql_query($sql);
+    if (!$rs) {
+        mysql_close($connection);
+        return false;
+    }
+    $value = (unserialize(mysql_result($rs, 0, 0)) == null) ? false : true;
+    mysql_close($connection);
+    return $value;
+}
+
 function getBook($bookId) {
     global $ZConfig;
     $connection = connect($ZConfig['DBInfo']['databases']['default']['dbname']);

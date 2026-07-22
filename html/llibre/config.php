@@ -23,6 +23,9 @@ if ($school == '' || !$bookId) {
     exit;
 }
 
+//get canLoginToBooks attribute
+$canLoginToBooks = getBookModuleAttribute('canLoginToBooks');
+
 //Calc the database from school identity
 $num = floor($school / 50) + 1;
 

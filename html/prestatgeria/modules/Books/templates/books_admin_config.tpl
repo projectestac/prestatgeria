@@ -33,6 +33,10 @@
             <label for="pwd">{gt text='Directori del Zikula'}</label>
             {$pwd}
         </div>
+        <div class="z-formrow">
+            <label for="canLoginToBooks">{gt text='Els usuaris poden entrar a l\'aplicació de llibres'}</label>
+            <input type="checkbox" name="canLoginToBooks"  {if $canLoginToBooks eq 1}checked{/if} value="1" />
+        </div>
         {gt text='Create' assign=alt_create}
         {gt text='Cancel' assign=alt_cancel}
         <div class="z-center">

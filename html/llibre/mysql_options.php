@@ -47,7 +47,6 @@ Class MySQL_options
                 $conn = $this->CONN;
 		$results = mysql_query($sql,$conn);
 		if( (!$results) or (empty($results))) {
-		print $sql;
 			mysql_free_result($results);
 			return false;
 		}
@@ -91,7 +90,7 @@ Class MySQL_options
 		$results = mysql_query($sql,$conn);
 		if(!$results) 
 		{
-			echo "<H2>La petici�n no funcion�!</H2>\n";
+			echo "<H2>La petici&oacute; no ha funcionat!</H2>\n";
 			echo mysql_errno().":  ".mysql_error()."<P>";
 			return false;
 		}

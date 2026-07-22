@@ -64,7 +64,7 @@ if($action == "login"){
 	} else {
 		$query_d = "SELECT * FROM ".$prefix."_users WHERE myusername='$myusername' AND mypassword='$mypassword'";
 		$myrow_d = $mydatabase->select($query_d);
-		if(count($myrow_d) != 0){
+		if (is_array($myrow_d) && count($myrow_d) !== 0) {
 			$loginok = true;
 			$myrow = $myrow_d[0];
 			setcookie("myuser",$myrow['recno'],0,'/');
@@ -123,11 +123,15 @@ $nextpage = $page + 1;
 <HTML>
 <HEAD>
 	<title><?php echo _BOOKLOGINPAGE;?></title>
+    <?php if (!$canLoginToBooks) {?>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php }?>
 </HEAD>
 <link rel="stylesheet" href="themes/<?php echo $theme;?>/style.css" type="text/css">
 
 <body bgcolor="#000000" background="themes/<?php echo $theme;?>/images/bkbook.gif" bgcolor="#ffffff" text="#664411" link="#996633" vlink="#996633" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" >
 	<br><br>
+    <?php if ($canLoginToBooks) {?>
 	<form action="login.php" method="post">
 		<input type="hidden" name="action" value="login">
 		<center>
@@ -206,5 +210,16 @@ $nextpage = $page + 1;
 			</font>
 		</center>
 	</form>
+    <?php } else {?>
+        <div style="display: flex; align-items: flex-start; border: 2px solid #f59e0b; border-radius: 12px; background-color: #fef3c7; padding: 20px; margin: 20px auto; width: 70%; color: #92400e; font-family: sans-serif;">
+            <div style="font-size: 40px; margin-right: 20px; line-height: 1; user-select: none;">
+                ⚠️
+            </div>
+            <div style="flex: 1 1 0%;">
+                <p style="font-size: large; margin-top: 0px;">La prestatgeria es troba en <strong>mode lectura</strong>. Es poden consultar els continguts existents, però no és possible autenticar-se com a usuari ni, per tant, afegir, modificar o eliminar continguts.</p>
+                <p style="font-size: large; margin-bottom: 0px;">Per a més informació, podeu adreçar-vos a <a href="mailto:culturadigital@xtec.cat" style="color: #d97706; text-decoration: underline;">culturadigital@xtec.cat</a>.</p>
+            </div>
+        </div>
+    <?php }?>
 </BODY>
 </HTML>

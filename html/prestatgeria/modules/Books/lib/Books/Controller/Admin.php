@@ -27,6 +27,7 @@ class Books_Controller_Admin extends Zikula_AbstractController {
                         ->assign('bookSoftwareUri', ModUtil::getVar('Books', 'bookSoftwareUri'))
                         ->assign('booksDatabase', ModUtil::getVar('Books', 'booksDatabase'))
                         ->assign('serverImageFolder', ModUtil::getVar('Books', 'serverImageFolder'))
+                        ->assign('canLoginToBooks', ModUtil::getVar('Books', 'canLoginToBooks'))
                         ->assign('pwd', getcwd())
                         ->fetch('books_admin_config.tpl');
     }
@@ -38,6 +39,7 @@ class Books_Controller_Admin extends Zikula_AbstractController {
         $bookSoftwareUri = FormUtil::getPassedValue('bookSoftwareUri', isset($args['bookSoftwareUri']) ? $args['bookSoftwareUri'] : null, 'POST');
         $booksDatabase = FormUtil::getPassedValue('booksDatabase', isset($args['booksDatabase']) ? $args['booksDatabase'] : null, 'POST');
         $serverImageFolder = FormUtil::getPassedValue('serverImageFolder', isset($args['serverImageFolder']) ? $args['serverImageFolder'] : null, 'POST');
+        $canLoginToBooks = FormUtil::getPassedValue('canLoginToBooks', isset($args['canLoginToBooks']) ? $args['canLoginToBooks'] : null, 'POST');
         // Security check
         if (!SecurityUtil::checkPermission('Books::', "::", ACCESS_ADMIN)) {
             throw new Zikula_Exception_Forbidden();
@@ -53,6 +55,7 @@ class Books_Controller_Admin extends Zikula_AbstractController {
         ModUtil::setVar('Books', 'bookSoftwareUri', $bookSoftwareUri);
         ModUtil::setVar('Books', 'booksDatabase', $booksDatabase);
         ModUtil::setVar('Books', 'serverImageFolder', $serverImageFolder);
+        ModUtil::setVar('Books', 'canLoginToBooks', $canLoginToBooks);
         return System::redirect(ModUtil::url('Books', 'admin', 'config'));
     }
 

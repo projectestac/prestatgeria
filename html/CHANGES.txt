@@ -6,6 +6,18 @@ development home at https://github.com/projectestac/prestatgeria
 Changes in progress
 ---------------------------------------------------------------------------------------
 
+v26.07.27
+-------------------------------------------------------------
+- Add param to Zikula to close access to books
+
+v20.11.03
+-------------------------------------------------------------
+- Get correct url protocol
+
+v20.10.23
+-------------------------------------------------------------
+- Sic integration
+- Comented code Provide https login using BigIP because not work in production index.php
 
 v16.11.21
 -------------------------------------------------------------
